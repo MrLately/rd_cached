@@ -3,10 +3,10 @@ import asyncio
 
 real_debrid_api_token = ""
 torrent_hash = ""
-headers = {"Authorization": f"Bearer {real_debrid_api_token}"}
 
 async def check_rd_cache(torrent_hash):
     api_url = f"https://api.real-debrid.com/rest/1.0/torrents/instantAvailability/{torrent_hash}"
+    headers = {"Authorization": f"Bearer {real_debrid_api_token}"}
     
     async with httpx.AsyncClient() as client:
         response = await client.get(api_url, headers=headers)
